@@ -275,16 +275,17 @@ or in case you are using a IDE (XCode, Visual Studio), "building" the target "RU
 ----------------------------------------------------------------
 ## 7 - Installation in Ubuntu 16.04 
 (Xiaowei's note, 20180723)
-1. Boost: sudo apt-get install libboost-all-dev 
+1. Boost: `sudo apt-get install libboost-all-dev` 
 This will install Boost 1.58.0, but the static without -fPIC dynamic support
 2. Download and install Boost 1.58.0 to $HOME/boost with -fPIC support 
 ```
 cd $BOOST_DIR
 boostrap.bat
-b2 --prefix=$BOOST_INSTALL_PREFIX --layout=`system` --ignore-config \
+b2 --prefix=$BOOST_INSTALL_PREFIX --layout=system --ignore-config \
    --with-test --with-thread --with-system \
       --with-chrono --with-date_time --with-program_options install
 ```
+Note that use `system` in Ubuntu linux instead of `versioned` in Windows
 3. Compile Soren's GrassmannAveragesPCA
 ```
 cd $source_folder
